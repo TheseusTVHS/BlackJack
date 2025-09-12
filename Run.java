@@ -1,10 +1,35 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Run {
     public static void main(String[] args) {
         Deck deck = new Deck();
 
-        for(Card card : deck.getCards())
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many players are there? ");
+        int  playerCount = scanner.nextInt() ; 
+
+        ArrayList<Player>  players =  new ArrayList<>();
+
+        for ( int r  = 1 ; r <= playerCount;  r++ )
         {
-            System.out.println(card);
+             Scanner scanTurn = new Scanner(System.in);
+             System.out.println("hit or stay?");
+             String turn = scanTurn.nextLine();
+
+             Player player  = new Player(playerName);
+             players.add(player);
+
+             if(turn == "hit")
+             {
+                // vtgfychy
+             }
+
         }
+       // for(Card card : deck.getCards())
+        //{
+        //    System.out.println(card);
+        //}
+
     }
 }

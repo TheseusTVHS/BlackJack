@@ -60,6 +60,7 @@ public class Player
 
     public void getCard(Deck deck)
     {
-        //do stuff
+        Card card = deck.getTopCard();
+
     }
 }
