@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.lang.model.util.ElementScanner14;
 
 public class Player
 {
@@ -14,10 +13,21 @@ public class Player
         this.money = 100;
     }
 
-    public void playTurn()
+    public void playTurn(Deck deck, Player player)
     {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("hit or stay?");
         String userInput = scanner.nextLine();
+        userInput.toLowerCase();
+
+        if (userInput == "hit")
+        {
+            this.hit(deck);
+            if(this.getHandValue() > 21)
+            {
+                return;
+            }
+        }
     }
 
     public void hit(Deck deck)
