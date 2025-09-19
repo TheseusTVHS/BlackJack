@@ -1,6 +1,5 @@
-import java.util.Scanner;
 import java.util.ArrayList;
-import javax.lang.model.util.ElementScanner14;
+import java.util.Scanner;
 
 public class Run {
     public static void main(String[] args) {
@@ -21,33 +20,14 @@ public class Run {
              Player player  = new Player(turn);
              players.add(player);
 
-             player.hit(deck);
-             player.hit(deck);
-
-             
-
         }
+
 
         for( int i = 0; i <= players.size() ; i++)
         {
             Player current = players.get(i);
-            current.playTurn(deck);
-            if(current.getHandValue() > 21)
-            {
-                System.out.println("You lost, womp womp");
-                //remember to subtract monwy when you get that working
-
-            }
-            else if (current.getHandValue() == 21)
-            {
-                System.out.println("Bazinga you won!");
-                //add their bet x1.5
-
-            }
-            else
-            {
-                //add to their bet
-            }
+           handleBet(getDealerHandValue);
+            
         }
        // for(Card card : deck.getCards())
         //{

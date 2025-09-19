@@ -6,11 +6,13 @@ public class Player
     private String name;
     private double money;
     private ArrayList<Card> hand = new ArrayList<>();
+    private double bet;
 
     public Player(String name)
     {
         this.name = name;
         this.money = 100;
+        this.bet = 0;
     }
 
     public void playTurn(Deck deck, Player player)
@@ -72,5 +74,62 @@ public class Player
     {
         Card card = deck.getTopCard();
 
+    }
+
+    public void setBet()
+    {
+        boolean validBet = false;
+        while( validBet == false)
+        {
+            Scanner scanner2 = new Scanner(System.in);
+            System.out.println("how much do you want to bet? ");
+            Double setBetAmount = scanner2.nextDouble();
+            scanner2.nextLine();
+            if (setBetAmount < this.money)
+            {
+                setBetAmount = this.bet;
+            }
+            else
+            {
+                Scanner scanner3 = new Scanner(System.in);
+                System.out.println("You bet is wrong, press enter to try again");
+                scanner3.nextLine();
+
+            }
+        }
+
+
+    }
+
+    public void handleBet(int getDealerHandValue)
+    {
+            if(getHandValue() > 21)
+            {
+                System.out.println("You lost, womp womp");
+                this.money = money - bet;
+
+            }
+            else if (getHandValue() == 21)
+            {
+                System.out.println("Bazinga you won!");
+                this.bet = bet * 1.5 ;
+                this.money = money + bet;
+
+            }
+            else if (getHandValue() < getDealerHandValue) 
+            {
+                System.out.println("You lost :( ");
+                this.money = money - bet ;
+            }
+            else if (getHandValue() == getDealerHandValue)
+            {
+                System.out.println("You tied! (loser) You don't lose or gain money");
+            }
+
+            else
+            {
+                System.out.println("Bazinga you won!");
+                this.money = money + bet;
+            }
     }
 }
