@@ -82,7 +82,7 @@ public class Player
         while( validBet == false)
         {
             Scanner scanner2 = new Scanner(System.in);
-            System.out.println("how much do you want to bet? ");
+            System.out.println("how much do you want to bet? You have " + money +" dollars");
             Double setBetAmount = scanner2.nextDouble();
             scanner2.nextLine();
             if (setBetAmount < this.money)
@@ -112,13 +112,14 @@ public class Player
             else if (getHandValue() == 21)
             {
                 System.out.println("Bazinga you won!");
+                System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
                 this.bet = bet * 1.5 ;
                 this.money = money + bet;
 
             }
             else if (getHandValue() < getDealerHandValue) 
             {
-                System.out.println("You lost :( ");
+                System.out.println("You lost (major loser) :( ");
                 this.money = money - bet ;
             }
             else if (getHandValue() == getDealerHandValue)
@@ -129,6 +130,7 @@ public class Player
             else
             {
                 System.out.println("Bazinga you won!");
+                System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
                 this.money = money + bet;
             }
     }

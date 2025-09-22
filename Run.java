@@ -21,7 +21,27 @@ public class Run {
              players.add(player);
 
         }
+        Dealer dealerFowler = new Dealer();
+        boolean gameGoing = true;
+        while (gameGoing  = true)
+        {
+            dealerFowler.dealerHit(deck);
+            dealerFowler.dealerHit(deck);
 
+            for( Player player: players)
+            {
+                player.setBet();
+                player.hit(deck);
+                player.hit(deck);
+            }
+        }
+
+        for( Player player : players)
+        {
+            player.playTurn(deck);
+            player.handleBet(dealerFowler.get(dealerHandValue()));
+        }
+        gameGoing = false;
 
         for( int i = 0; i <= players.size() ; i++)
         {
