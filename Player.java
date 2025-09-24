@@ -88,17 +88,25 @@ public class Player
             if (setBetAmount < this.money)
             {
                 setBetAmount = this.bet;
+                validBet = true;
+                break;
             }
             else
             {
                 Scanner scanner3 = new Scanner(System.in);
                 System.out.println("You bet is wrong, press enter to try again");
                 scanner3.nextLine();
+                validBet = false;
 
             }
         }
 
 
+    }
+
+    public double getMoney()
+    {
+       return this.money;
     }
 
     public void handleBet(int getDealerHandValue)
@@ -107,6 +115,7 @@ public class Player
             {
                 System.out.println("You lost, womp womp");
                 this.money = money - bet;
+                
 
             }
             else if (getHandValue() == 21)
@@ -133,5 +142,6 @@ public class Player
                 System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
                 this.money = money + bet;
             }
+            System.out.println("You have " + money + "money");
     }
 }
