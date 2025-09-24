@@ -10,29 +10,35 @@ public class Dealer extends Player
         super("Fowler");
     }
 
-    public void dealerHit(Deck deck)
+    public void firstDealerHit(Deck deck)
         {
             Card newCard = deck.getTopCard();
             this.dealerHand.add(newCard);
-            if( dealerHand.size() == 1)
-            {
-                System.out.println("something's wrong with your hand...");
-            }
-            else{
-                for(int i = 1; i<= dealerHand.size(); i++)
-                {
-                    System.out.println(dealerHand.get(i));
-                }
-            }
+            System.out.println(dealerHand);
         }
 
-         public int getDealertHandValue()
+        public void SecoundDealerHit(Deck deck)
+        {
+            Card newCard = deck.getTopCard();
+            this.dealerHand.add(newCard);
+            System.out.println("The dealer is showing " + newCard) ;
+        }
+
+        public void thirdDealerHit(Deck deck)
+        {
+            System.out.println(dealerHand);
+        }
+
+        
+
+
+         public int dealerHandValue()
         {
             int totalValue = 0;
             int aceCount = 0;
             for( Card card : dealerHand)
             {
-                int cardValue = card.getDealerCardValue();
+                int cardValue = card.getCardValue();
                 totalValue += cardValue;
                 if(cardValue == 11)
                 {
@@ -64,4 +70,42 @@ public class Dealer extends Player
 
         }
 
+        public void dealerTurn(Deck deck)
+        {
+            while( dealerHandValue() < 17 || (dealerHandValue() == 27 && haveAces() == true))
+            {
+                firstDealerHit(deck);
+            }
+        }
+
+        public boolean haveAces()
+        {
+            int totalValue = 0;
+            int aceCount = 0;
+            for( Card card : dealerHand)
+            {
+                int cardValue = card.getCardValue();
+                totalValue += cardValue;
+                if(cardValue == 11)
+                {
+                    aceCount ++;
+                }
+
+            }
+            while ( aceCount  > 0)
+            {
+                if (totalValue > 21)
+                {
+                    totalValue = totalValue - 10;
+                    return false;
+                }
+            
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
 }
