@@ -17,6 +17,7 @@ public class Player
 
     public void playTurn(Deck deck, Player player)
     {
+        System.out.println(hand);
         Scanner scanner = new Scanner(System.in);
         System.out.println("hit or stay?");
         String userInput = scanner.nextLine();
@@ -52,20 +53,10 @@ public class Player
             }
 
         }
-        while ( aceCount  > 0)
+        while ( aceCount  > 0 && totalValue > 21)
         {
-            if (totalValue > 21)
-            {
-                totalValue = totalValue - 10;
-            }
-        }
-        if(aceCount > 0 && totalValue > 21)
-            {
-                totalValue = totalValue - 10;
-            }
-        else
-        {
-            aceCount = 0;
+            totalValue = totalValue - 10;
+            aceCount--;
         }
         return totalValue;
     }
@@ -109,6 +100,16 @@ public class Player
        return this.money;
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
+    public String printBet()
+    {
+        return name + " has " + bet;
+    }
+
     public void handleBet(int getDealerHandValue)
     {
             if(getHandValue() > 21)
@@ -141,7 +142,7 @@ public class Player
                 System.out.println("Bazinga you won!");
                 System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
                 this.money = money + bet;
-            }
+            }                                                                                                                      
             System.out.println("You have " + money + "money");
     }
 }

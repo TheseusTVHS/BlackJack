@@ -18,7 +18,7 @@ public class Run
         for ( int r  = 1 ; r <= playerCount;  r++ )
         {
              Scanner scanTurn = new Scanner(System.in);
-             System.out.println("What are your names?");
+             System.out.println("What is your name player " + r);
              String turn = scanTurn.nextLine();
 
              Player player  = new Player(turn);
@@ -42,17 +42,21 @@ public class Run
             for( Player player : players)
             {
                 player.playTurn(deck ,player);
+                player.handleBet(playerCount);
                 if(player.getMoney() == 0.00)
                 {
                     gameGoing = false;
                 }
                 else{
                     Scanner scan = new Scanner(System.in);
-                    System.out.println("Do you wnat ot continue playing?");
+                    System.out.println("Do you want to continue playing?");
                     String playerChoice = scan.nextLine();
                     if ( playerChoice.equals("yes"))
                     {
                     gameGoing = false;
+                    }
+                    else{
+                        gameGoing = true;
                     }
                 }
             }

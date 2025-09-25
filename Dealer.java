@@ -14,7 +14,6 @@ public class Dealer extends Player
         {
             Card newCard = deck.getTopCard();
             this.dealerHand.add(newCard);
-            System.out.println(dealerHand);
         }
 
         public void SecoundDealerHit(Deck deck)
