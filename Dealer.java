@@ -10,25 +10,24 @@ public class Dealer extends Player
         super("Fowler");
     }
 
-    public void firstDealerHit(Deck deck)
+    public void DealerHit(Deck deck)
         {
             Card newCard = deck.getTopCard();
             this.dealerHand.add(newCard);
+            System.out.println(dealerHand); 
         }
 
-        public void SecoundDealerHit(Deck deck)
-        {
+
+        public void getDealer(Deck deck)
+        {   
+            this.dealerHand = new ArrayList<Card>();
+            this.hit(deck);
+            this.hit(deck);
+
             Card newCard = deck.getTopCard();
             this.dealerHand.add(newCard);
-            System.out.println("The dealer is showing " + newCard) ;
+            System.out.println("The dealer is showing " + newCard);
         }
-
-        public void thirdDealerHit(Deck deck)
-        {
-            System.out.println(dealerHand);
-        }
-
-        
 
 
          public int dealerHandValue()
@@ -45,6 +44,7 @@ public class Dealer extends Player
                 }
 
             }
+
             while ( aceCount  > 0)
             {
                 if (totalValue > 21)
@@ -73,7 +73,7 @@ public class Dealer extends Player
         {
             while( dealerHandValue() < 17 || (dealerHandValue() == 27 && haveAces() == true))
             {
-                firstDealerHit(deck);
+                DealerHit(deck);
             }
         }
 

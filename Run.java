@@ -35,8 +35,7 @@ public class Run
                 player.hit(deck);
                 player.hit(deck);
             }
-            dealerFowler.firstDealerHit(deck);
-            dealerFowler.SecoundDealerHit(deck);
+            dealerFowler.DealerHit(deck);
         
             dealerFowler.dealerTurn(deck);
             for( Player player : players)

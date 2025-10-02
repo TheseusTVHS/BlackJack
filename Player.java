@@ -85,7 +85,7 @@ public class Player
         while( validBet == false)
         {
             Scanner scanner2 = new Scanner(System.in);
-            System.out.println("how much do you want to bet? You have " + money +" dollars");
+            System.out.println( "how much do you want to bet? You have " + money +" dollars");
             Double setBetAmount = scanner2.nextDouble();
             scanner2.nextLine();
             if (setBetAmount < this.money)
@@ -123,10 +123,18 @@ public class Player
         return name + " has " + bet;
     }
 
+    public void getDeal(Deck deck)
+    {
+        this.hand = new ArrayList<Card>();
+        this.hit(deck);
+        this.hit(deck);
+    }
+
     public void handleBet(int getDealerHandValue)
     {
             if(getHandValue() > 21)
             {
+  
                 System.out.println("You lost, womp womp");
                 this.money = this.money - this.bet;
                 
@@ -134,7 +142,6 @@ public class Player
             }
             else if (getHandValue() == 21)
             {
-
                 System.out.println("Bazinga "+ getName() + " you won!");
                 System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
                 this.bet = this.bet * 1.5 ;
@@ -149,13 +156,11 @@ public class Player
             }
             else if (getHandValue() == getDealerHandValue)
             {
-
                 System.out.println("You tied! (loser) You don't lose or gain money");
             }
 
             else
             {
-
                 System.out.println("Bazinga "+ getName() + " you won!");
                 System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
                 this.money = this.money + this.bet;
