@@ -19,9 +19,9 @@ public class Run
         {
              Scanner scanTurn = new Scanner(System.in);
              System.out.println("What is your name player " + r);
-             String turn = scanTurn.nextLine();
+             String playerName = scanTurn.nextLine();
 
-             Player player  = new Player(turn);
+             Player player  = new Player(playerName);
              players.add(player);
 
         }
@@ -44,6 +44,7 @@ public class Run
                 player.handleBet(playerCount);
                 if(player.getMoney() == 0.00)
                 {
+                    System.out.println("You're out of money :( , don't bet so much next time");
                     gameGoing = false;
                 }
                 else{

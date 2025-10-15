@@ -88,7 +88,7 @@ public class Player
             System.out.println( "how much do you want to bet? You have " + money +" dollars");
             Double setBetAmount = scanner2.nextDouble();
             scanner2.nextLine();
-            if (setBetAmount < this.money)
+            if (setBetAmount <= this.money)
             {
                 setBetAmount = this.bet;
                 validBet = true;
