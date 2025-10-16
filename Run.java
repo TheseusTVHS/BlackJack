@@ -29,15 +29,13 @@ public class Run
         boolean gameGoing = true;
         while (gameGoing  = true)
         { 
+             dealerFowler.getDealer(deck);
+
             for( Player player: players)
             {
                 player.setBet();
-                player.hit(deck);
-                player.hit(deck);
+                player.getDeal(deck);
             }
-            dealerFowler.DealerHit(deck);
-        
-            dealerFowler.dealerTurn(deck);
             for( Player player : players)
             {
                 player.playTurn(deck ,player);

@@ -14,20 +14,20 @@ public class Dealer extends Player
         {
             Card newCard = deck.getTopCard();
             this.dealerHand.add(newCard);
-            System.out.println("The dealer is showing " + newCard);
-            System.out.println(dealerHand); 
+            System.out.println(dealerHand);
         }
 
 
         public void getDealer(Deck deck)
         {   
             this.dealerHand = new ArrayList<Card>();
-            this.hit(deck);
-            this.hit(deck);
+            Card newCard1 = deck.getTopCard();
+            this.dealerHand.add(newCard1);
+            
 
-            Card newCard = deck.getTopCard();
-            this.dealerHand.add(newCard);
-            System.out.println("The dealer is showing " + newCard);
+            Card newCard2 = deck.getTopCard();
+            this.dealerHand.add(newCard2);
+            System.out.println("The dealer is showing " + newCard2);
         }
 
 

@@ -103,8 +103,6 @@ public class Player
 
             }
         }
-
-
     }
 
     public double getMoney()
@@ -144,15 +142,15 @@ public class Player
             {
                 System.out.println("Bazinga "+ getName() + " you won!");
                 System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
-                this.bet = this.bet * 1.5 ;
-                this.money = this.money + this.bet;
+                bet = this.bet * 1.5 ;
+                money = money + this.bet;
 
             }
             else if (getHandValue() < getDealerHandValue) 
             {
 
                 System.out.println("You lost (major loser) :( ");
-                this.money = this.money - this.bet ;
+                money = money - this.bet ;
             }
             else if (getHandValue() == getDealerHandValue)
             {
@@ -163,7 +161,7 @@ public class Player
             {
                 System.out.println("Bazinga "+ getName() + " you won!");
                 System.out.println("See how fun it is to win! you should play again! and again, and again, and again...");
-                this.money = this.money + this.bet;
+                money = money + this.bet;
             }                                                                                                                      
             System.out.println("You have " + money + " money");
     }
