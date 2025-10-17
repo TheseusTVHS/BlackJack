@@ -29,17 +29,18 @@ public class Run
         boolean gameGoing = true;
         while (gameGoing  = true)
         { 
-             dealerFowler.getDealer(deck);
 
             for( Player player: players)
             {
                 player.setBet();
                 player.getDeal(deck);
             }
+            dealerFowler.getDealer(deck);
+
             for( Player player : players)
             {
                 player.playTurn(deck ,player);
-                player.handleBet(playerCount);
+                player.handleBet(dealerFowler.dealerHandValue());
                 if(player.getMoney() == 0.00)
                 {
                     System.out.println("You're out of money :( , don't bet so much next time");
@@ -51,10 +52,10 @@ public class Run
                     String playerChoice = scan.nextLine();
                     if ( playerChoice.equals("yes"))
                     {
-                    gameGoing = false;
+                    gameGoing = true;
                     }
-                    else{
-                        gameGoing = true;
+                    else if (playerChoice.equals("no")){
+                        gameGoing = false;
                     }
                 }
             }
