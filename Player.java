@@ -36,10 +36,7 @@ public class Player
             }
             else if (userInput.equals("stay"))
             {
-                if(this.getHandValue() > 21)
-                {
-                    return;
-                }
+                return;
             }
             else if (getHandValue() > 21)
             {

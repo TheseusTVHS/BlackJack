@@ -27,7 +27,7 @@ public class Run
         }
         Dealer dealerFowler = new Dealer();
         boolean gameGoing = true;
-        while (gameGoing  = true)
+        while (gameGoing)
         { 
 
             for( Player player: players)
@@ -52,9 +52,10 @@ public class Run
                     String playerChoice = scan.nextLine();
                     if ( playerChoice.equals("yes"))
                     {
-                    gameGoing = true;
+                        gameGoing = true;
                     }
-                    else if (playerChoice.equals("no")){
+                    else
+                    {
                         gameGoing = false;
                     }
                 }
